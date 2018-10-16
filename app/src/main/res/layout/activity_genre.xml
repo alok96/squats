@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/darker_gray"
+    android:orientation="vertical"
+    tools:context="com.zef.squats.activity.GenreActivity"
+    tools:ignore="MissingPrefix">
+
+    <com.zhy.android.percent.support.PercentFrameLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@android:color/black"
+        android:orientation="horizontal"
+        app:layout_heightPercent="7%"
+        app:layout_marginTopPercent="0%"
+        app:layout_widthPercent="100%">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/movies_list"
+            android:textColor="@android:color/white"
+            app:layout_heightPercent="100%"
+            app:layout_textSizePercent="30%"
+            app:layout_widthPercent="40%" />
+    </com.zhy.android.percent.support.PercentFrameLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_movies_genre_all"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@android:color/black"
+        app:layout_heightPercent="92%"
+        app:layout_widthPercent="100%">
+
+    </android.support.v7.widget.RecyclerView>
+
+
+</com.zhy.android.percent.support.PercentLinearLayout>
