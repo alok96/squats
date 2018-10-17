@@ -17,6 +17,7 @@ import com.zef.squats.constants.AppConfig;
 import com.zef.squats.model.Genre;
 import com.zef.squats.model.MovieListResponse;
 import com.zef.squats.model.Result;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -84,9 +85,11 @@ public class MovieGenreListRecyclerAdapter extends RecyclerView.Adapter<MovieGen
         call.enqueue(new Callback<MovieListResponse>() {
             @Override
             public void onResponse(Call<MovieListResponse> call, Response<MovieListResponse> response) {
-                viewHolder.movies.clear();
-                viewHolder.movies.addAll(response.body().getResults());
-                viewHolder.movieRecyclerAdapter.notifyDataSetChanged();
+                if (response.body() != null && response.body().getResults() != null) {
+                    viewHolder.movies.clear();
+                    viewHolder.movies.addAll(response.body().getResults());
+                    viewHolder.movieRecyclerAdapter.notifyDataSetChanged();
+                }
             }
 
             @Override

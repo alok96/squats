@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/gradient_dark1"
     android:orientation="vertical"
     tools:context="com.zef.squats.activity.GenreActivity"
     tools:ignore="MissingPrefix">
@@ -11,7 +12,7 @@
     <com.zhy.android.percent.support.PercentFrameLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@android:color/black"
+        android:background="@color/background_dark"
         android:orientation="horizontal"
         app:layout_heightPercent="7%"
         app:layout_marginTopPercent="0%"
@@ -35,7 +36,9 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:text="@string/movie_details"
+            android:textAllCaps="true"
             android:textColor="@android:color/white"
+            android:textStyle="bold"
             app:layout_heightPercent="100%"
             app:layout_textSizePercent="30%"
             app:layout_widthPercent="40%" />
@@ -49,7 +52,7 @@
         android:gravity="center"
         android:orientation="vertical"
         app:layout_heightPercent="50%"
-        app:layout_marginTopPercent="0.5%"
+        app:layout_marginTopPercent="0.2%"
         app:layout_widthPercent="100%">
 
 
@@ -64,14 +67,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@android:color/black"
-                app:layout_heightPercent="70%"
+                app:layout_heightPercent="75%"
                 app:layout_widthPercent="100%">
 
                 <ImageView
                     android:id="@+id/iv_cover"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/venom_cover"
+                    android:background="@color/stroke_dark"
                     android:scaleType="fitXY" />
 
             </com.zhy.android.percent.support.PercentFrameLayout>
@@ -83,86 +86,44 @@
                 android:layout_gravity="bottom"
                 android:orientation="horizontal"
                 app:layout_heightPercent="35%"
-                app:layout_marginBottomPercent="1%"
+                app:layout_marginBottomPercent="0.2%"
                 app:layout_widthPercent="100%">
 
                 <ImageView
                     android:id="@+id/iv_poster"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
                     android:layout_gravity="left|top"
                     android:background="#EEEEEE"
-                    android:src="@drawable/venom_logo"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_no_poster"
                     app:layout_heightPercent="100%"
                     app:layout_marginLeftPercent="2%"
                     app:layout_paddingPercent="1%"
                     app:layout_widthPercent="25%" />
 
                 <com.zhy.android.percent.support.PercentLinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:background="@color/gradient_dark1"
                     android:orientation="vertical"
-                    app:layout_heightPercent="90%"
-                    app:layout_marginLeftPercent="1%"
-                    app:layout_marginTopPercent="10%"
+                    app:layout_heightPercent="70%"
+                    app:layout_marginLeftPercent="0.5%"
+                    app:layout_marginTopPercent="15.1%"
                     app:layout_widthPercent="75%">
 
                     <TextView
                         android:id="@+id/tv_movie_title"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center|left|bottom"
-                        android:text="Venom"
-                        android:textSize="17dp"
-                        app:layout_heightPercent="60%"
-                        app:layout_widthPercent="95%" />
-
-                    <com.zhy.android.percent.support.PercentLinearLayout
-                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_gravity="bottom"
-                        android:orientation="horizontal"
-                        app:layout_heightPercent="40%"
-                        app:layout_widthPercent="95%">
+                        android:gravity="center|left"
+                        android:text="--"
+                        android:textColor="@android:color/white"
+                        app:layout_paddingLeftPercent="5%"
+                        app:layout_paddingTopPercent="2%"
+                        app:layout_textSizePercent="15%" />
 
-                        <TextView
-                            android:id="@+id/tv_language"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:gravity="top|left"
-                            android:text="Language"
-                            android:textColor="@android:color/white"
-                            android:textSize="12dp"
-                            app:layout_textSizePercent="35%"
-                            app:layout_heightPercent="80%" />
-
-
-                        <TextView
-                            android:id="@+id/tv_release_date"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:gravity="top|left"
-                            android:text="Release Date"
-                            android:textColor="@android:color/white"
-                            android:textSize="12dp"
-                            app:layout_textSizePercent="35%"
-                            app:layout_heightPercent="80%"
-                            app:layout_marginLeftPercent="3%" />
-
-                        <TextView
-                            android:id="@+id/tv_rest_open_status"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center|top"
-                            android:gravity="center|left"
-                            android:text="Popularity = 6.7"
-                            android:textColor="@android:color/white"
-                            app:layout_heightPercent="55%"
-                            app:layout_marginLeftPercent="2%"
-                            app:layout_textSizePercent="35%"
-                            app:layout_widthPercent="40%" />
-                    </com.zhy.android.percent.support.PercentLinearLayout>
                 </com.zhy.android.percent.support.PercentLinearLayout>
             </com.zhy.android.percent.support.PercentLinearLayout>
 
@@ -170,19 +131,93 @@
 
     </com.zhy.android.percent.support.PercentLinearLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/tv_description"
-        android:layout_gravity="bottom"
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
         android:background="@android:color/black"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:text="Description"
-        app:layout_heightPercent="39.5%"
-        app:layout_marginLeftPercent="2%"
-        app:layout_marginTopPercent="1.5%"
-        app:layout_widthPercent="96%" />
+        android:orientation="vertical"
+        app:layout_heightPercent="42.8%"
+        app:layout_widthPercent="99%">
+
+        <TextView
+            android:id="@+id/tv_language"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/gradient_dark1"
+            android:gravity="center|top|left"
+            android:text="--"
+            android:textColor="@android:color/white"
+            android:textSize="12dp"
+            app:layout_heightPercent="10%"
+            app:layout_marginTopPercent="0.2%"
+            app:layout_paddingLeftPercent="2%"
+            app:layout_paddingTopPercent="2%"
+            app:layout_textSizePercent="4.6%"
+            app:layout_widthPercent="100%" />
+
+        <TextView
+            android:id="@+id/tv_popularity"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/gradient_dark1"
+            android:gravity="center|top|left"
+            android:text="--"
+            android:textColor="@android:color/white"
+            android:textSize="12dp"
+            app:layout_heightPercent="10%"
+            app:layout_paddingLeftPercent="2%"
+            app:layout_paddingTopPercent="2%"
+            app:layout_textSizePercent="4.6%"
+            app:layout_widthPercent="100%" />
+
+        <TextView
+            android:id="@+id/tv_revenue"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/gradient_dark1"
+            android:gravity="center|top|left"
+            android:text="--"
+            android:textColor="@android:color/white"
+            android:textSize="12dp"
+            app:layout_heightPercent="10%"
+            app:layout_paddingLeftPercent="2%"
+            app:layout_paddingTopPercent="2%"
+            app:layout_textSizePercent="4.6%"
+            app:layout_widthPercent="100%" />
+
+        <TextView
+            android:id="@+id/tv_release_date"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/gradient_dark1"
+            android:gravity="center|top|left"
+            android:text="--"
+            android:textColor="@android:color/white"
+            android:textSize="12dp"
+            app:layout_heightPercent="10%"
+            app:layout_paddingLeftPercent="2%"
+            app:layout_paddingTopPercent="2%"
+            app:layout_textSizePercent="4.6%"
+            app:layout_widthPercent="100%" />
+
+
+        <TextView
+            android:id="@+id/tv_description"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:background="@color/gradient_dark1"
+            android:gravity="center|left|top"
+            android:text="--"
+            android:textColor="@android:color/white"
+            app:layout_heightPercent="60.5%"
+            app:layout_marginTopPercent="0.5%"
+            app:layout_paddingLeftPercent="2%"
+            app:layout_paddingTopPercent="2%"
+            app:layout_textSizePercent="4.6%"
+            app:layout_widthPercent="100%" />
+    </com.zhy.android.percent.support.PercentLinearLayout>
 
 
 </com.zhy.android.percent.support.PercentLinearLayout>

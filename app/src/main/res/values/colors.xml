@@ -3,4 +3,14 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <!-- Dark Theming-->
+
+    <color name="background_color_dark">#121212</color>
+    <color name="background_dark">#1b1b1b</color>
+    <color name="gradient_dark">#181818</color>
+    <color name="gradient_dark1">#272727</color>
+    <color name="gradient_semi_dark">#f9292929</color>
+    <color name="stroke_dark">#434348</color>
+
 </resources>

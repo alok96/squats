@@ -13,6 +13,9 @@ import com.zef.squats.apiexecutor.RetrofitClient;
 import com.zef.squats.constants.AppConfig;
 import com.zef.squats.dialog.LoadingDialogFragment;
 import com.zef.squats.model.MovieResponse;
+
+import org.w3c.dom.Text;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -30,7 +33,9 @@ public class MovieDetailsActivity extends AppCompatActivity {
     private TextView popularity;
     private ImageView poster;
     private TextView description;
+    private TextView revenue;
     private ImageView backButton;
+
 
     private LoadingDialogFragment loadingDialogFragment;
 
@@ -38,12 +43,13 @@ public class MovieDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_details);
-        movieId  = getIntent().getIntExtra(AppConfig.MOVIE_INTENT,0);
+        movieId = getIntent().getIntExtra(AppConfig.MOVIE_INTENT, 0);
         cover = findViewById(R.id.iv_cover);
         movieTitle = findViewById(R.id.tv_movie_title);
         language = findViewById(R.id.tv_language);
         releaseDate = findViewById(R.id.tv_release_date);
-        popularity = findViewById(R.id.tv_rest_open_status);
+        popularity = findViewById(R.id.tv_popularity);
+        revenue = findViewById(R.id.tv_revenue);
         description = findViewById(R.id.tv_description);
         poster = findViewById(R.id.iv_poster);
         backButton = findViewById(R.id.iv_back_theme);
@@ -55,16 +61,18 @@ public class MovieDetailsActivity extends AppCompatActivity {
         });
         loadingDialogFragment = new LoadingDialogFragment(this);
         getMovieDetails(movieId);
+
+
     }
 
-    private void getMovieDetails(int movieId){
+    private void getMovieDetails(int movieId) {
         loadingDialogFragment.show();
-        Call<MovieResponse> call = RetrofitClient.getClient().getMovieDetails(movieId,AppConfig.API_KEY);
+        Call<MovieResponse> call = RetrofitClient.getClient().getMovieDetails(movieId, AppConfig.API_KEY);
         call.enqueue(new Callback<MovieResponse>() {
             @Override
             public void onResponse(Call<MovieResponse> call, Response<MovieResponse> response) {
-               setData(response.body());
-               loadingDialogFragment.dismissDialog();
+                setData(response.body());
+                loadingDialogFragment.dismissDialog();
             }
 
             @Override
@@ -74,13 +82,16 @@ public class MovieDetailsActivity extends AppCompatActivity {
         });
     }
 
-    private void setData(MovieResponse movieResponse){
+    private void setData(MovieResponse movieResponse) {
+        loadingDialogFragment.show();
+        Picasso.with(this).load(AppConfig.IMAGE_DOWNLOAD_URL + movieResponse.getPosterPath()).into(poster);
+        Picasso.with(this).load(AppConfig.IMAGE_DOWNLOAD_URL + movieResponse.getBackdropPath()).into(cover);
         movieTitle.setText(movieResponse.getTitle());
         description.setText(movieResponse.getOverview());
-        language.setText(movieResponse.getOriginalLanguage());
-        releaseDate.setText(movieResponse.getReleaseDate());
-        Picasso.with(this).load(AppConfig.IMAGE_DOWNLOAD_URL+movieResponse.getPosterPath()).into(poster);
-        Picasso.with(this).load(AppConfig.IMAGE_DOWNLOAD_URL+movieResponse.getBackdropPath()).into(cover);
-        popularity.setText("Popularity :"+movieResponse.getPopularity());
+        language.setText(getString(R.string.language) + " " + movieResponse.getOriginalLanguage());
+        releaseDate.setText(getString(R.string.release_date) + " " + movieResponse.getReleaseDate());
+        popularity.setText(getString(R.string.populatiry) + " " + movieResponse.getPopularity());
+        revenue.setText(getString(R.string.revenue) + " " + movieResponse.getRevenue());
+        loadingDialogFragment.dismissDialog();
     }
 }

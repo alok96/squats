@@ -17,6 +17,7 @@ import com.zef.squats.activity.MovieDetailsActivity;
 import java.util.ArrayList;
 
 import com.zef.squats.constants.AppConfig;
+import com.zef.squats.dialog.LoadingDialogFragment;
 import com.zef.squats.model.Result;
 
 /**
@@ -26,6 +27,7 @@ public class MovieRecyclerAdapter extends RecyclerView.Adapter<MovieRecyclerAdap
 
     private Context mContext;
     private ArrayList<Result> movies;
+    private LoadingDialogFragment loadingDialogFragment;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView movieImage;
